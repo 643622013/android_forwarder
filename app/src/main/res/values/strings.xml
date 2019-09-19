@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">android_forwarder</string>
+    <string name="permission_tip">我们需要获取您的部分权限，否则您将无法正常使用APP</string>
+    <string name="network_error_message">网络出了点问题\n点击刷新重新加载</string>
+    <string name="error_message">错啦</string>
+    <string name="transitional_image">the image of transition</string>
+    <string name="image_index">%1$d/%2$d</string>
+
+</resources>

@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.zhys_pc.android_forwarder"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+
+    signingConfigs {
+        release {
+            keyAlias 'zhys_key'
+            keyPassword 'zhyszhys'
+            storeFile file('../zhys.jks')
+            storePassword 'zhyszhys'
+        }
+        debug {
+            keyAlias 'zhys_key'
+            keyPassword 'zhyszhys'
+            storeFile file('../zhys.jks')
+            storePassword 'zhyszhys'
+        }
+    }
+
+    // 指定生成安装文件的相关配置
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //Supprot
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha02'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    //网络请求
+    implementation project(':framework')
+    //底部导航
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //toast
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+    //下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-10'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-10'
+    //加载json 动画
+    implementation 'com.airbnb.android:lottie:1.0.1'
+    //内存溢出
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    //捕获网络请求
+    debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
+    releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+    //选择图片
+    implementation 'com.github.TEENSTITAN.PictureSelector-master:picture_library:0.0.2'
+
+
+
+}

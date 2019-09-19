@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/lib_base_header_bar_title"></include>
+
+    <Button
+        android:id="@+id/get_no_login_token_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取未登录状态下的token" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="登录" />
+
+
+    <Button
+        android:id="@+id/get_msg_num_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取货源大厅消息未读数" />
+
+
+    <Button
+        android:id="@+id/go_main_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="去首页" />
+
+</LinearLayout>
